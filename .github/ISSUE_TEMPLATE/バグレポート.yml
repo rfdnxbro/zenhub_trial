@@ -1,0 +1,62 @@
+name: バグレポート
+description: バグ報告時に使うissueテンプレート
+title: "[バグ]: "
+labels: ["bug"]
+assignees:
+  - rfdnxbro
+body:
+  - type: markdown
+    attributes:
+      value: |
+        バグレポートの記入、ありがとうございます
+  - type: input
+    id: contact
+    attributes:
+      label: 連絡を取るには
+      description: より情報が必要な時、どこに連絡をすればいいですか？
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: 何が起きましたか？
+      description: また、何が起こると予想していたか教えてください
+      placeholder: 何を見るべきか教えてください
+      value: "バグが発生しました"
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: Version
+      description: ソフトウェアのバージョンはいくつですか？
+      options:
+        - 1.0.2 (Default)
+        - 1.0.3 (Edge)
+    validations:
+      required: true
+  - type: dropdown
+    id: browsers
+    attributes:
+      label: どのブラウザを利用中に発生しましたか？
+      multiple: true
+      options:
+        - Firefox
+        - Chrome
+        - Safari
+        - Microsoft Edge
+  - type: textarea
+    id: logs
+    attributes:
+      label: 関連ログ
+      description: エラーが起きた時のログをコピペしてください
+      render: shell
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: 行動規範
+      description: このissueの報告をするには、あなたが行動規範に則っている必要があります
+      options:
+        - label: 行動規範に同意します
+          required: true
